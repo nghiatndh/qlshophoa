@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WinFormsApp2.DTO;
 
@@ -52,6 +55,37 @@ namespace WinFormsApp2.DAO
             }
 
             return ncc;
+        }
+
+        public NCC GetIDByNCC(string name)
+        {
+            NCC category = null;
+
+            string query = "select * from NhaCungCap where TenNCC = '" + name + "'";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                category = new NCC(item);
+                return category;
+            }
+
+            return category;
+        }
+        public bool InsertNCC(string id, string name, string diachi, string sdt)
+        {
+            string query = string.Format("INSERT dbo.SanPham ( MaNCC, TenNCC, DiaChi, SDT )VALUES  ( N'{0}', N'{1}', N{2}, N{3})", id, name, diachi, sdt);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+        public bool DeleteNCCByID(string id)
+        {
+            string query = string.Format("DELETE dbo.NhaCungCap where MaNCC = '{0}'", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
         }
     }
 }

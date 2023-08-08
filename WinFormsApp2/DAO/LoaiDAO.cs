@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WinFormsApp2.DTO;
 
@@ -70,6 +73,18 @@ namespace WinFormsApp2.DAO
 
             return category;
         }
+        public bool InsertLoai(string id, string name, string mota)
+        {
+            string query = string.Format("INSERT dbo.Loai ( MaLoai, TenLoai, MoTa )VALUES  ( N'{0}', N'{1}', N'{2}')", id, name, mota);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+        public bool DeleteLoaiByID(string id)
+        {
+            string query = string.Format("DELETE dbo.Loai where MaLoai = '{0}' CASCADE", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
 
+            return result > 0;
+        }
     }
 }

@@ -49,14 +49,14 @@ namespace WinFormsApp2
             string maloai = cbxMaLoai.Text;
             string makho = cbxMaKho.Text;
             string mancc = cbxMaNCC.Text;
-            if(SanPhamDAO.Instance.InsertSanPham(id,name, gia, sl, size, mota, maloai, makho, mancc))
+            if (SanPhamDAO.Instance.InsertSanPham(id, name, gia, sl, size, mota, maloai, makho, mancc))
             {
-                MessageBox.Show("Thêm sản phẩm thành công!");
+                MessageBox.Show("Thêm kho thành công!");
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Có lỗi khi thêm sản phẩm");
+                MessageBox.Show("Có lỗi khi thêm kho");
             }
         }
     }

@@ -28,8 +28,8 @@ namespace WinFormsApp2
 
             this.LoginAccount = acc;
 
-            LoadSanPhamList();
-            dgvIDK.DataSource = LoadIDK();
+            dgvSP.DataSource = LoadSanPhamList();
+            dgvIDK.DataSource = LoadHoaDon();
         }
 
 
@@ -44,11 +44,6 @@ namespace WinFormsApp2
             f.Show();
         }
 
-        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fAccount f = new fAccount();
-            f.Show();
-        }
 
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -56,23 +51,11 @@ namespace WinFormsApp2
             f.Show();
         }
 
-        void LoadSanPhamList()
+        DataTable LoadSanPhamList()
         {
             string query = "select MaSP, TenSP, Gia, SoLuong from SanPham";
 
-            dgvSP.DataSource = DataProvider.Instance.ExecuteQuery(query);
-        }
-
-        DataTable LoadIDK()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("MaSP", typeof(string));
-            dt.Columns.Add("TenSP", typeof(string));
-            dt.Columns.Add("SoLuong", typeof(int));
-            dt.Columns.Add("ThanhTien", typeof(float));
-
-            return dt;
-
+            return DataProvider.Instance.ExecuteQuery(query);
         }
 
 
@@ -80,41 +63,59 @@ namespace WinFormsApp2
         private void dgvSP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
+            string query;
 
-
-
-            DataTable dt = (DataTable)dgvIDK.DataSource;
-            DataRow drToAdd = dt.NewRow();
-
-            DataGridViewRow dtSP = dgvSP.Rows[index];
-
-            //dtHD.Cells[0].Value = dtSP.Cells["MaSP"].Value;//maSP
-            //dtHD.Cells[1].Value = dtSP.Cells["TenSP"].Value;//tenSP
-
-            drToAdd["MaSP"] = dtSP.Cells[0].Value;//maSP
-            drToAdd["TenSP"] = dtSP.Cells[1].Value;//tenSP
-                                                   //dtHD.Cells[2].Value = dtSP.Cells[0].Value;
-
-            drToAdd["SoLuong"] = 1;
-            if (dt.Rows.Count > 0)
+            dgvIDK.DataSource = LoadHoaDon();
+            DataGridViewRow row = dgvSP.Rows[index];
+            DataGridViewRow rowIDK = dgvIDK.Rows[0];
+            bool flag = false;
+            foreach (DataGridViewRow data in dgvIDK.Rows)
             {
-                foreach (DataRow item in dt.Rows)
+                if (data.Cells[0].Value == row.Cells[0].Value)
                 {
-                    drToAdd["ThanhTien"] = item["SoLuong"];
+                    flag = true; break;
                 }
+ 
+            }
+            if (flag)
+            {
+                query = "EXEC dbo.Update_SLSanPham 'SP04'"/*rowIDK.Cells[0].Value*/;
             }
             else
             {
-                drToAdd["ThanhTien"] = Convert.ToSingle(dtSP.Cells["Gia"].Value);
+                query = string.Format("INSERT INTO HOADON(MaSP, SoLuong) VALUES('{0}', 1)", row.Cells[0].Value);
             }
+            DataProvider.Instance.ExecuteNonQuery(query);
+            LoadHoaDon();
 
-            dt.Rows.Add(drToAdd);
         }
 
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
-            int index = dgvIDK.CurrentCell.RowIndex;
-            dgvIDK.Rows.RemoveAt(index);
+            string index = dgvIDK.CurrentCell.Value.ToString();
+
+            string query = "DELETE HOADON WHERE MaSP ='" + index + "'";
+
+            if (DataProvider.Instance.ExecuteNonQuery(query) > 0)
+            {
+                MessageBox.Show("Xóa đơn thành công!");
+                LoadHoaDon();
+            }
+            
+        }
+
+        DataTable LoadHoaDon()
+        {
+            string query = "SELECT HD.MaSP, SP.TenSP, Sp.Gia, HD.SoLuong , HD.ThanhTien FROM HOADON HD, SANPHAM SP WHERE HD.MASP = SP.MASP";
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            dgvSP.DataSource = LoadSanPhamList();
+            dgvIDK.DataSource = LoadHoaDon();
+
         }
     }
 }

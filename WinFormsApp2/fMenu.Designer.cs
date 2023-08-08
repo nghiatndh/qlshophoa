@@ -40,8 +40,8 @@
             btnThanhToan = new Button();
             btnXoaSP = new Button();
             panel4 = new Panel();
-            txbTim = new TextBox();
             btnTim = new Button();
+            txbTim = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvIDK).BeginInit();
             panel2.SuspendLayout();
@@ -82,6 +82,7 @@
             dgvSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSP.Location = new Point(1, 7);
             dgvSP.Name = "dgvSP";
+            dgvSP.ReadOnly = true;
             dgvSP.RowHeadersWidth = 51;
             dgvSP.RowTemplate.Height = 29;
             dgvSP.Size = new Size(296, 381);
@@ -108,7 +109,7 @@
             // kháchHàngToolStripMenuItem
             // 
             kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
-            kháchHàngToolStripMenuItem.Size = new Size(224, 26);
+            kháchHàngToolStripMenuItem.Size = new Size(169, 26);
             kháchHàngToolStripMenuItem.Text = "Khách hàng";
             kháchHàngToolStripMenuItem.Click += kháchHàngToolStripMenuItem_Click;
             // 
@@ -135,6 +136,7 @@
             btnThanhToan.TabIndex = 0;
             btnThanhToan.Text = "button1";
             btnThanhToan.UseVisualStyleBackColor = true;
+            btnThanhToan.Click += btnThanhToan_Click;
             // 
             // btnXoaSP
             // 
@@ -155,14 +157,6 @@
             panel4.Size = new Size(296, 62);
             panel4.TabIndex = 5;
             // 
-            // txbTim
-            // 
-            txbTim.Location = new Point(0, 16);
-            txbTim.Name = "txbTim";
-            txbTim.Size = new Size(193, 27);
-            txbTim.TabIndex = 3;
-            txbTim.Text = " ";
-            // 
             // btnTim
             // 
             btnTim.Location = new Point(206, 8);
@@ -171,6 +165,14 @@
             btnTim.TabIndex = 4;
             btnTim.Text = "Tìm";
             btnTim.UseVisualStyleBackColor = true;
+            // 
+            // txbTim
+            // 
+            txbTim.Location = new Point(0, 16);
+            txbTim.Name = "txbTim";
+            txbTim.Size = new Size(193, 27);
+            txbTim.TabIndex = 3;
+            txbTim.Text = " ";
             // 
             // fMenu
             // 

@@ -166,6 +166,9 @@
             dtToDate = new DateTimePicker();
             dtFromDate = new DateTimePicker();
             tp = new TabControl();
+            panel45 = new Panel();
+            nmSLHoa = new NumericUpDown();
+            label25 = new Label();
             tabPage3.SuspendLayout();
             panel28.SuspendLayout();
             panel43.SuspendLayout();
@@ -225,6 +228,8 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             tp.SuspendLayout();
+            panel45.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nmSLHoa).BeginInit();
             SuspendLayout();
             // 
             // tabPage3
@@ -522,6 +527,7 @@
             btnXoaNV.TabIndex = 1;
             btnXoaNV.Text = "Xóa";
             btnXoaNV.UseVisualStyleBackColor = true;
+            btnXoaNV.Click += btnXoaNV_Click;
             // 
             // btnThemNV
             // 
@@ -531,6 +537,7 @@
             btnThemNV.TabIndex = 0;
             btnThemNV.Text = "Thêm";
             btnThemNV.UseVisualStyleBackColor = true;
+            btnThemNV.Click += btnThemNV_Click;
             // 
             // tabPage2
             // 
@@ -689,6 +696,7 @@
             btnXoaKho.TabIndex = 1;
             btnXoaKho.Text = "Xóa";
             btnXoaKho.UseVisualStyleBackColor = true;
+            btnXoaKho.Click += btnXoaKho_Click;
             // 
             // btnThemKho
             // 
@@ -698,6 +706,7 @@
             btnThemKho.TabIndex = 0;
             btnThemKho.Text = "Thêm";
             btnThemKho.UseVisualStyleBackColor = true;
+            btnThemKho.Click += btnThemKho_Click;
             // 
             // tabPage1
             // 
@@ -910,6 +919,7 @@
             btnXoaNCC.TabIndex = 1;
             btnXoaNCC.Text = "Xóa";
             btnXoaNCC.UseVisualStyleBackColor = true;
+            btnXoaNCC.Click += btnXoaNCC_Click;
             // 
             // btnThemNCC
             // 
@@ -919,6 +929,7 @@
             btnThemNCC.TabIndex = 0;
             btnThemNCC.Text = "Thêm";
             btnThemNCC.UseVisualStyleBackColor = true;
+            btnThemNCC.Click += btnThemNCC_Click;
             // 
             // tpLoai
             // 
@@ -1104,6 +1115,7 @@
             btnXoaLoai.TabIndex = 1;
             btnXoaLoai.Text = "Xóa";
             btnXoaLoai.UseVisualStyleBackColor = true;
+            btnXoaLoai.Click += btnXoaLoai_Click;
             // 
             // btnThemLoai
             // 
@@ -1113,6 +1125,7 @@
             btnThemLoai.TabIndex = 0;
             btnThemLoai.Text = "Thêm";
             btnThemLoai.UseVisualStyleBackColor = true;
+            btnThemLoai.Click += btnThemLoai_Click;
             // 
             // tpHoa
             // 
@@ -1131,6 +1144,7 @@
             // 
             // panel6
             // 
+            panel6.Controls.Add(panel45);
             panel6.Controls.Add(panel44);
             panel6.Controls.Add(panel11);
             panel6.Controls.Add(panel10);
@@ -1265,7 +1279,7 @@
             // 
             panel9.Controls.Add(nmGiaHoa);
             panel9.Controls.Add(label3);
-            panel9.Location = new Point(0, 159);
+            panel9.Location = new Point(3, 139);
             panel9.Name = "panel9";
             panel9.Size = new Size(378, 47);
             panel9.TabIndex = 2;
@@ -1415,6 +1429,7 @@
             btnSuaHoa.TabIndex = 2;
             btnSuaHoa.Text = "Sửa";
             btnSuaHoa.UseVisualStyleBackColor = true;
+            btnSuaHoa.Click += btnSuaHoa_Click;
             // 
             // btnXoaHoa
             // 
@@ -1513,6 +1528,34 @@
             tp.Size = new Size(944, 616);
             tp.TabIndex = 0;
             // 
+            // panel45
+            // 
+            panel45.Controls.Add(nmSLHoa);
+            panel45.Controls.Add(label25);
+            panel45.Location = new Point(0, 192);
+            panel45.Name = "panel45";
+            panel45.Size = new Size(378, 47);
+            panel45.TabIndex = 6;
+            // 
+            // nmSLHoa
+            // 
+            nmSLHoa.Location = new Point(127, 14);
+            nmSLHoa.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nmSLHoa.Name = "nmSLHoa";
+            nmSLHoa.Size = new Size(242, 27);
+            nmSLHoa.TabIndex = 1;
+            nmSLHoa.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label25.Location = new Point(0, 14);
+            label25.Name = "label25";
+            label25.Size = new Size(111, 31);
+            label25.TabIndex = 0;
+            label25.Text = "Số lượng";
+            // 
             // fAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1607,6 +1650,9 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             tp.ResumeLayout(false);
+            panel45.ResumeLayout(false);
+            panel45.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nmSLHoa).EndInit();
             ResumeLayout(false);
         }
 
@@ -1750,5 +1796,8 @@
         private Label label24;
         private NumericUpDown nmGiaHoa;
         private NumericUpDown nmLuongNV;
+        private Panel panel45;
+        private NumericUpDown nmSLHoa;
+        private Label label25;
     }
 }

@@ -17,7 +17,6 @@ D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.fLogin.resources
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.fMenu.resources
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.fAdmin.resources
-D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.fAccount.resources
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
@@ -28,3 +27,12 @@ D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.fCustomer.resources
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.fAddSP.resources
 D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.fDelSP.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fAddNV.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fAddNhanVien.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fAddKho.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fAddLoai.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fDelNCC.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fDelNhanVien.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fDelKho.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fDelLoai.resources
+D:\Code\C# - Win Form\Project\QLHoa\QLHoa\WinFormsApp2\obj\Debug\net6.0-windows\WinFormsApp2.AddDel.fAddNCC.resources

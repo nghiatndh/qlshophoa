@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WinFormsApp2.DTO;
 
 namespace WinFormsApp2.DAO
 {
@@ -29,6 +30,14 @@ namespace WinFormsApp2.DAO
         public bool DeleteSanPhamByID(string id)
         {
             string query = string.Format("DELETE dbo.SanPham where MaSP = '{0}'", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool UpdateSanPham(string id, string name, float price, int sl, string size, string mota)
+        {
+            string query = string.Format("UPDATE dbo.SanPham SET TenSP = N'{1}', Gia = {2}, SoLuong = {3}, KichThuoc = '{4}', MoTa  = '{5}' WHERE MaSP = '{0}'", id, name, price, sl, size, mota);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;

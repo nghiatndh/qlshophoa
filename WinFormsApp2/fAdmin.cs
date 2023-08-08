@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp2.AddDel;
 using WinFormsApp2.DAO;
 using WinFormsApp2.DTO;
 
@@ -66,6 +67,7 @@ namespace WinFormsApp2
             txbMaHoa.DataBindings.Add(new Binding("Text", dtgvHoa.DataSource, "MaSP"));
             txbTenHoa.DataBindings.Add(new Binding("Text", dtgvHoa.DataSource, "TenSP"));
             nmGiaHoa.DataBindings.Add(new Binding("Value", dtgvHoa.DataSource, "Gia"));
+            nmSLHoa.DataBindings.Add(new Binding("Value", dtgvHoa.DataSource, "SoLuong"));
             txbSizeHoa.DataBindings.Add(new Binding("Text", dtgvHoa.DataSource, "KichThuoc"));
             txbMoTaHoa.DataBindings.Add(new Binding("Text", dtgvHoa.DataSource, "MoTa"));
         }
@@ -217,6 +219,76 @@ namespace WinFormsApp2
         {
             fDelSP f = new fDelSP();
             f.Show();
+        }
+
+        private void btnThemNV_Click(object sender, EventArgs e)
+        {
+            fAddNhanVien f = new fAddNhanVien();
+            f.Show();
+        }
+
+        private void btnXoaNV_Click(object sender, EventArgs e)
+        {
+            fDelNhanVien f = new fDelNhanVien();
+            f.Show();
+        }
+
+        private void btnThemLoai_Click(object sender, EventArgs e)
+        {
+            fAddLoai f = new fAddLoai();
+            f.Show();
+        }
+
+        private void btnXoaLoai_Click(object sender, EventArgs e)
+        {
+            fDelLoai f = new fDelLoai();
+            f.Show();
+        }
+
+        private void btnThemNCC_Click(object sender, EventArgs e)
+        {
+            fAddNCC f = new fAddNCC();
+            f.Show();
+        }
+
+        private void btnXoaNCC_Click(object sender, EventArgs e)
+        {
+            fDelNCC f = new fDelNCC();
+            f.Show();
+        }
+
+        private void btnThemKho_Click(object sender, EventArgs e)
+        {
+            fAddKho f = new fAddKho();
+            f.Show();
+        }
+
+        private void btnXoaKho_Click(object sender, EventArgs e)
+        {
+            fDelKho f = new fDelKho();
+            f.Show();
+        }
+
+        private void btnSuaHoa_Click(object sender, EventArgs e)
+        {
+            string id = txbMaHoa.Text;
+            string name = txbTenHoa.Text;
+            float gia = (float)nmGiaHoa.Value;
+            int sl = (int)nmSLHoa.Value;
+            string size = txbSizeHoa.Text;
+            string mota = txbMoTaHoa.Text;
+            string maloai = Convert.ToString(LoaiDAO.Instance.GetIDByCategory(cbxMaLoai.Text));
+            string makho = Convert.ToString(KhoHangDAO.Instance.GetIDByKhoHang(cbxMaKho.Text));
+            string mancc = Convert.ToString(NCCDAO.Instance.GetIDByNCC(cbxMaNCC.Text));
+            if (SanPhamDAO.Instance.UpdateSanPham(id, name, gia, sl, size, mota))
+            {
+                MessageBox.Show("Sửa sản phẩm kho thành công!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa sản phẩm");
+            }
         }
     }
 }

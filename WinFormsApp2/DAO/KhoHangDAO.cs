@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WinFormsApp2.DTO;
 
@@ -52,6 +55,38 @@ namespace WinFormsApp2.DAO
             }
 
             return kho;
+        }
+
+        public KhoHang GetIDByKhoHang(string name)
+        {
+            KhoHang category = null;
+
+            string query = "select * from KhoHang where TenKho = '" + name + "'";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                category = new KhoHang(item);
+                return category;
+            }
+
+            return category;
+        }
+        public bool InsertKhoHang(string id, string name)
+        {
+            string query = string.Format("INSERT dbo.KhoHang ( MaKhO, TenKho )VALUES  ( N'{0}', N'{1}')", id, name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool DeleteKhoHangByID(string id)
+        {
+            string query = string.Format("DELETE dbo.KhoHang where MaKhO = '{0}'", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            return result > 0;
         }
     }
 }
